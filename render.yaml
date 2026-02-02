@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: wenontheroad
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0
+      - key: NEXT_PUBLIC_ADMIN_PASSWORD
+        value: admin123
+    healthCheckPath: /
+    autoDeploy: true
